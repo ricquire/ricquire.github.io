@@ -1,160 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="shortcut icon" type="image/x-icon" href="plexlanding.ico" />`
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <style>
-        body.offline #link-bar {
-            display:none;
-        }
-
-        body.online  #link-bar{
-            display:block;
-        }
-    </style>
-    <script src="assets/js/ping.js"></script>
-    <script type='text/javascript'>
-        HTMLElement.prototype.hasClass = function (className) {
-            if (this.classList) {
-                return this.classList.contains(className);
-            } else {
-                return (-1 < this.className.indexOf(className));
-            }
-        };
-
-        HTMLElement.prototype.addClass = function (className) {
-            if (this.classList) {
-                this.classList.add(className);
-            } else if (!this.hasClass(className)) {
-                var classes = this.className.split(" ");
-                classes.push(className);
-                this.className = classes.join(" ");
-            }
-            return this;
-        };
-
-        HTMLElement.prototype.removeClass = function (className) {
-            if (this.classList) {
-                this.classList.remove(className);
-            } else {
-                var classes = this.className.split(" ");
-                classes.splice(classes.indexOf(className), 1);
-                this.className = classes.join(" ");
-            }
-            return this;
-        };
-
-        function checkServer() {
-            var p = new Ping();
-            var server = document.domain; //Try to get it automagically, but you can manually specify this
-            var timeout = 2000; //Milliseconds
-            var body = document.getElementsByTagName("body")[0];
-            p.ping(server+"", function(data) {
-                var serverMsg = document.getElementById( "server-status-msg" );
-                var serverImg = document.getElementById( "server-status-img" );
-                if (data < 1000){
-                    serverMsg.innerHTML ='Up and reachable';
-                    serverImg.src = "assets/img/ipad-hand-on.png";
-                    body.addClass('online').removeClass("offline");
-                }else{
-                    serverMsg.innerHTML = 'Down and unreachable';
-                    serverImg.src = "assets/img/ipad-hand-off.png";
-                }
-            }, timeout);
-        }
-    </script>
-
-
     <title>ricquire.net</title>
-    	
 
-    <!-- Bootstrap core CSS -->
+    <link rel="icon" type="image/x-icon" href="plexlanding.ico">
     <link href="assets/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Custom styles -->
     <link href="assets/css/main.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet">
 
-    <!-- Fonts from Google Fonts -->
-    <link href='//fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
-    
-  
+    <style>
+      body {
+        font-family: 'Lato', sans-serif;
+        background: #f8f9fa;
+      }
+      .navbar {
+        margin-bottom: 40px;
+      }
+      .navbar-brand {
+        font-weight: 900;
+        letter-spacing: 0.5px;
+      }
+      .container {
+        max-width: 1000px;
+      }
+      .centered {
+        text-align: center;
+      }
+      .col-lg-4 img {
+        margin-bottom: 15px;
+        transition: transform 0.2s ease-in-out;
+      }
+      .col-lg-4 img:hover {
+        transform: scale(1.05);
+      }
+      footer {
+        text-align: center;
+        color: #888;
+        margin: 40px 0;
+      }
+    </style>
   </head>
 
-  <body onload="checkServer()" class="offline">
-
-    <!-- Fixed navbar -->
-    <div class="navbar navbar-default navbar-fixed-top">
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          
-          <a href="http://plex.ricquire.net">
+          <a class="navbar-brand" href="https://ricquire.net">ricquire.net</a>
+        </div>
+      </div>
+    </nav>
 
-        
-        </div><!--/.nav-collapse -->
+    <!-- Main Content -->
+    <div class="container" id="link-bar">
+      <div class="row mt centered">
+        <div class="col-lg-6 col-lg-offset-3"></div>
+      </div>
+
+      <div class="row mt centered">
+        <div class="col-lg-4">
+          <a href="https://app.plex.tv/desktop" target="_blank" rel="noopener noreferrer">
+            <img src="assets/img/s01.png" width="180" alt="Plex">
+            <h4>Access Plex</h4>
+            <p>Access the growing ricquire.net library of Movies and TV instantly.</p>
+          </a>
+        </div>
+
+        <div class="col-lg-4">
+          <a href="https://requests.ricquire.net" target="_blank" rel="noopener noreferrer">
+            <img src="assets/img/s02.png" width="180" alt="Requests">
+            <h4>Request Content</h4>
+            <p>Can't find what you want on ricquire.net? Request it here!</p>
+          </a>
+        </div>
+
+        <div class="col-lg-4">
+          <a href="mailto:admin@ricquire.net?subject=Plex%20Invite%20Request&body=Send%20me%20a%20ricquire.net%20Plex%20Invite!">
+            <img src="assets/img/s03.png" width="180" alt="Get Access">
+            <h4>Get Access</h4>
+            <p>Don't have access to ricquire.net? Send an email to request an invite now.</p>
+          </a>
+        </div>
       </div>
     </div>
-    <div class="container" id="link-bar">
-		<div class="row mt centered">
-			<div class="col-lg-6 col-lg-offset-3">
-				
-				
-			</div>
-		</div><!-- /row -->
-		
-		<div class="row mt centered">
-			<div class="col-lg-4">
-				<a href="http://app.plex.tv/web/app" target="_top">
-				<img src="assets/img/s01.png" width="180" alt="">
-				<h4>Access Plex</h4>
-				<p>Access the growing ricquire.net library of Movies and TV instantly.<p>
-					</a>
-			</div><!--/col-lg-4 -->
 
-			<div class="col-lg-4">
-				<a href="http://requests.ricquire.net" target="_top">
-				<img src="assets/img/s02.png" width="180" alt="">
-				<h4>Request Content</h4>
-				<p>Can't find what you want on ricquire.net? Request it here!</p>
-</a>
-			</div><!--/col-lg-4 -->
+    <!-- Footer -->
+    <footer>
+      <p>© <span id="year"></span> ricquire.net — All rights reserved.</p>
+    </footer>
 
-			<div class="col-lg-4">
-				<a href="mailto:admin@ricquire.net?subject=Plex Invite Request&body=Send me a ricquire.net Plex Invite!" target="_top">
-				
-				<img src="assets/img/s03.png" width="180" alt="">
-				<h4>Get Access</h4>
-				<p>Don't have access to ricquire.net? Send an email to request an invite now.</p>
-</a>
-			</div><!--/col-lg-4 -->
-		</div><!-- /row -->
-	</div><!-- /container -->
-	<p>
-
-	<div id="headerwrap">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<h1><br/>
-					<center>ricquire.net is up:</h1></center>
-					<center><h4 id="server-status-msg"><img src="assets/img/puff.svg">   Checking...</h4></center><br/>
-					<br/>
-					<br/>
-					<form class="form-inline" role="form">
-					  <div class="form-group">
-					    
-					  </div>
-					  				
-				</div><!-- /col-lg-6 -->
-				<div class="col-lg-6">
-					<img id="server-status-img" class="img-responsive" src="assets/img/ipad-hand.png" alt="">
-				</div><!-- /col-lg-6 -->
-				
-			</div><!-- /row -->
-		</div><!-- /container -->
-	</div><!-- /headerwrap -->
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
