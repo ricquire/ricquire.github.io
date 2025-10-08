@@ -14,32 +14,66 @@
     <style>
       body {
         font-family: 'Lato', sans-serif;
-        background: #f8f9fa;
+        background: #0d0d0d;
+        color: #eaeaea;
+        margin: 0;
       }
+
       .navbar {
-        margin-bottom: 40px;
+        background-color: #111;
+        border: none;
       }
+
       .navbar-brand {
+        color: #f5f5f5 !important;
         font-weight: 900;
         letter-spacing: 0.5px;
       }
+
+      .navbar-brand:hover {
+        color: #ffcc33 !important;
+      }
+
       .container {
         max-width: 1000px;
       }
+
       .centered {
         text-align: center;
       }
+
+      h4 {
+        color: #ffcc33;
+      }
+
+      p {
+        color: #bbb;
+      }
+
       .col-lg-4 img {
         margin-bottom: 15px;
-        transition: transform 0.2s ease-in-out;
+        transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
       }
+
       .col-lg-4 img:hover {
         transform: scale(1.05);
+        opacity: 0.85;
       }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      a:hover h4 {
+        color: #fff;
+      }
+
       footer {
         text-align: center;
-        color: #888;
-        margin: 40px 0;
+        color: #777;
+        margin: 60px 0 30px 0;
+        font-size: 14px;
       }
     </style>
   </head>
@@ -53,6 +87,9 @@
         </div>
       </div>
     </nav>
+
+    <!-- Spacer for fixed navbar -->
+    <div style="height: 60px;"></div>
 
     <!-- Main Content -->
     <div class="container" id="link-bar">
